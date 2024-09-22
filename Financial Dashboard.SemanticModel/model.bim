@@ -1,0 +1,400 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.135.7627.0 (24.08)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Fact_data\",\"dictionary\",\"_Measure\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "a8d82001-27ab-d803-2c10-8d7b7465742f",
+        "fromColumn": "Date",
+        "fromTable": "Fact_data",
+        "toColumn": "Date",
+        "toTable": "Date"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Fact_data",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "isHidden": true,
+            "lineageTag": "d22d6785-fd3a-465e-babc-39644c467bbf",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Business Line",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "57aec725-9763-42d9-a8f2-4185c27e9440",
+            "sourceColumn": "Business Line",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Amount, $",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e9c7a8f9-efb0-4a3c-9a32-097da6d1f12d",
+            "sourceColumn": "Amount, $",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Expense subgroup",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1aa5fe3c-cb58-4ec8-9d9b-ef392f117a81",
+            "sourceColumn": "Expense subgroup",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Revenue / Expense Group",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f977746e-1c19-4a14-bd2c-18d13b823db0",
+            "sourceColumn": "Revenue / Expense Group",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Revenue or expense",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "29f559f3-5c40-480d-9841-64890d32a8d3",
+            "sourceColumn": "Revenue or expense",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "06017209-4f89-4557-9abe-69972d73ec60",
+            "sourceColumn": "Amount",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "1daf1cf9-1592-4036-a67f-ebd06cc3fefd",
+        "partitions": [
+          {
+            "name": "Fact_data",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"H:\\_Portfolio Project Github\\_Financial Dashboard\\Financial Statement.xlsx\"), null, true),",
+                "    Table1_Table = Source{[Item=\"Table1\",Kind=\"Table\"]}[Data],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Table1_Table,{{\"Year\", Int64.Type}, {\"Month - name\", type text}, {\"Month -sequence\", Int64.Type}, {\"Date\", type date}, {\"Business Line\", type text}, {\"Amount, $\", Int64.Type}, {\"Expense subgroup\", type text}, {\"Revenue / Expense Group\", type text}, {\"Revenue or expense\", type text}}),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(#\"Changed Type\", \"Amount, $\", \"Amount, $ - Copy\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Duplicated Column\",{{\"Amount, $ - Copy\", \"Amount\"}}),",
+                "    #\"Calculated Absolute Value\" = Table.TransformColumns(#\"Renamed Columns\",{{\"Amount\", Number.Abs, Int64.Type}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Calculated Absolute Value\",{\"Year\", \"Month - name\", \"Month -sequence\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dictionary",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fd8ba603-32fc-46d8-ae20-cf12b09986d2",
+            "sourceColumn": "Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year of revenue/expense",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "eb9cb4af-0f9e-42e8-b5c4-1a52f6db6591",
+            "sourceColumn": "Year of revenue/expense",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "8ef584b3-9c3f-48d1-89f3-8ebe473571cc",
+        "partitions": [
+          {
+            "name": "dictionary",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"H:\\_Portfolio Project Github\\_Financial Dashboard\\Financial Statement.xlsx\"), null, true),",
+                "    dictionary_Sheet = Source{[Item=\"dictionary\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(dictionary_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Year\", type text}, {\"Year of revenue/expense\", type any}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "006d771d32544be39299514fcaac1147"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "02126382-4d7d-4302-9cfc-7775acf82933",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Start_of_month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "expression": "STARTOFMONTH('Date'[Date])",
+            "formatString": "General Date",
+            "isDataTypeInferred": true,
+            "lineageTag": "32317f71-29b0-489e-82c8-27cc91abba51",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month no",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "MONTH('Date'[Start_of_month])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "cb760779-6a18-47ed-8c36-ecc48fcb48bf",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "FORMAT('Date'[Date], \"mmm\")",
+            "isDataTypeInferred": true,
+            "lineageTag": "ba398846-d34b-4ddf-adf8-a7b14ebd3f66",
+            "sortByColumn": "Month no",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "FORMAT('Date'[Date], \"mmmm\")",
+            "isDataTypeInferred": true,
+            "lineageTag": "b15f6ed7-30cc-43d0-8185-f0f79ed2dc03",
+            "sortByColumn": "Month no",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "4cdf771b-c61c-4620-9e22-2a83e3d1379e",
+        "partitions": [
+          {
+            "name": "Date",
+            "mode": "import",
+            "source": {
+              "expression": "CALENDARAUTO()",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "_Measure",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "lineageTag": "d203632c-0dc2-4666-b273-4e1fa003ce8b",
+        "measures": [
+          {
+            "name": "Total",
+            "expression": "SUM(Fact_data[Amount])",
+            "formatString": "0",
+            "lineageTag": "1563f451-113f-4391-a0ad-36ac073a1813"
+          },
+          {
+            "name": "Total Revenue",
+            "expression": "CALCULATE([Total], Fact_data[Revenue or expense]=\"Revenue\")",
+            "formatString": "#,0",
+            "lineageTag": "4e87492e-57b3-498b-98b2-d51af0519df0"
+          },
+          {
+            "name": "Total Expense",
+            "expression": "CALCULATE([Total], Fact_data[Revenue or expense]=\"expense\")",
+            "formatString": "#,0",
+            "lineageTag": "74bdb7e2-d9b4-46ef-b160-808f9c053eba"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_Measure",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Changed Type\",{\"Column1\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
