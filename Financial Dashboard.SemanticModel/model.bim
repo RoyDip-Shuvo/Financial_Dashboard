@@ -404,6 +404,81 @@
             "expression": "DIVIDE([Total Expense]-[PM Expense], [PM Expense], 0)",
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "49a1785a-5779-4e81-b0d0-0d8a53602806"
+          },
+          {
+            "name": "Total COGS",
+            "expression": "CALCULATE([Total], Fact_data[Revenue / Expense Group]=\"COGS\")",
+            "formatString": "0",
+            "lineageTag": "cc3444f5-5134-42a1-80ac-efc5b2073544"
+          },
+          {
+            "name": "Gross Profit",
+            "expression": "[Total Revenue]- [Total COGS]",
+            "formatString": "#,0",
+            "lineageTag": "e881854f-f09e-4ac0-8b5b-07c2734f4c81"
+          },
+          {
+            "name": "GP Margin %",
+            "expression": "DIVIDE([Gross Profit], [Total Revenue], 0)",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "a74bdcb1-7632-4fe4-82c6-711d940e25bb"
+          },
+          {
+            "name": "MoM GP %",
+            "expression": [
+              "",
+              "VAR PM_gp = CALCULATE([Gross Profit], DATEADD('Date'[Date], -1, MONTH))",
+              "VAR reg_gp = [Gross Profit]",
+              "VAR Diff = reg_gp- PM_gp",
+              "VAR Result = DIVIDE(Diff, PM_gp, 0)",
+              "RETURN",
+              "    Result"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "4199c7e2-c1ef-4030-ba95-d6b4dcff665a"
+          },
+          {
+            "name": "Net Profit",
+            "expression": "[Total Revenue] - [Total Expense]",
+            "formatString": "#,0",
+            "lineageTag": "8d8a0d6a-ab9a-4cd4-9396-0fd41237d6f6"
+          },
+          {
+            "name": "MoM NP %",
+            "expression": [
+              "",
+              "VAR PM_np = CALCULATE([Net Profit], DATEADD('Date'[Date], -1, MONTH))",
+              "VAR reg_np = [Net Profit]",
+              "VAR Diff = reg_np- PM_np",
+              "VAR Result = DIVIDE(Diff, PM_np, 0)",
+              "RETURN",
+              "    Result"
+            ],
+            "formatString": "0.0%;-0.0%;0.0%",
+            "lineageTag": "dcc81f7c-39a3-4c5c-9c49-7f693bc0b58a"
+          },
+          {
+            "name": "Net Profit Margin",
+            "expression": "DIVIDE([Net Profit], [PM Revenue], 0)",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "f576e636-9588-4b13-bf60-8d12914d89a6"
+          },
+          {
+            "name": "Terget Revnue",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "17560000/12",
+            "lineageTag": "77cf6256-ad85-472c-8ff8-dbeff3069ad9"
+          },
+          {
+            "name": "aa",
+            "expression": "CALCULATE([Total Revenue], REMOVEFILTERS('Date'[Month name]))",
+            "formatString": "0",
+            "lineageTag": "68264d64-17e8-4e1f-837a-e0728925eefa"
           }
         ],
         "partitions": [
