@@ -375,6 +375,35 @@
             "expression": "CALCULATE([Total], Fact_data[Revenue or expense]=\"expense\")",
             "formatString": "#,0",
             "lineageTag": "74bdb7e2-d9b4-46ef-b160-808f9c053eba"
+          },
+          {
+            "name": "PM Revenue",
+            "expression": "CALCULATE([Total Revenue], DATEADD('Date'[Date], -1,MONTH)) + 0",
+            "formatString": "0",
+            "lineageTag": "24c88aa0-0a6a-4062-bad5-055552b98017"
+          },
+          {
+            "name": "MoM rev %",
+            "expression": "DIVIDE([Total Revenue]-[PM Revenue], [PM Revenue], 0)",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "0d8f567e-2622-4bba-b081-6e9319278484"
+          },
+          {
+            "name": "Rev label BG Color",
+            "expression": "IF([MoM rev %]>0, \"#A5D6A7\", \"#FFAB91\")",
+            "lineageTag": "b0e20f07-144e-47f7-af5a-9440ac005287"
+          },
+          {
+            "name": "PM Expense",
+            "expression": "CALCULATE([Total Expense], DATEADD('Date'[Date], -1, MONTH))",
+            "formatString": "0",
+            "lineageTag": "f20ac1a3-b5bb-46d3-ace7-d8b2115802a4"
+          },
+          {
+            "name": "MoM Exp %",
+            "expression": "DIVIDE([Total Expense]-[PM Expense], [PM Expense], 0)",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "49a1785a-5779-4e81-b0d0-0d8a53602806"
           }
         ],
         "partitions": [
