@@ -322,14 +322,14 @@
             "lineageTag": "49a1785a-5779-4e81-b0d0-0d8a53602806"
           },
           {
-            "name": "Total COGS",
+            "name": "COGS",
             "expression": "CALCULATE([Total], Fact_data[Revenue / Expense Group]=\"COGS\")",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "cc3444f5-5134-42a1-80ac-efc5b2073544"
           },
           {
             "name": "Gross Profit",
-            "expression": "[Total Revenue]- [Total COGS]",
+            "expression": "[Total Revenue]- [COGS]",
             "formatString": "#,0",
             "lineageTag": "e881854f-f09e-4ac0-8b5b-07c2734f4c81"
           },
@@ -374,7 +374,7 @@
             "lineageTag": "dcc81f7c-39a3-4c5c-9c49-7f693bc0b58a"
           },
           {
-            "name": "Net Profit Margin",
+            "name": "NP Margin %",
             "expression": "DIVIDE([Net Profit], [PM Revenue], 0)",
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "f576e636-9588-4b13-bf60-8d12914d89a6"
@@ -435,6 +435,24 @@
             ],
             "formatString": "0",
             "lineageTag": "a7f11339-0d58-4b8f-8834-abc8558e8f91"
+          },
+          {
+            "name": "Total Opex",
+            "expression": "CALCULATE([Total], Fact_data[Revenue / Expense Group]=\"Opex\")",
+            "formatString": "0",
+            "lineageTag": "7ec0f08a-c569-4fb2-8c45-a2ee1c10ae75"
+          },
+          {
+            "name": "EBIT",
+            "expression": "[Gross Profit]-[Total Opex]",
+            "formatString": "#,0",
+            "lineageTag": "4d582b38-e0c9-413f-8693-fb256b45f623"
+          },
+          {
+            "name": "EBIT Margin %",
+            "expression": "DIVIDE([EBIT], [Total Revenue])",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "bf233f5b-292f-411c-92af-125d5a1e9d4a"
           }
         ],
         "partitions": [
