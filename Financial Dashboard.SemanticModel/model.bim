@@ -437,14 +437,14 @@
             "lineageTag": "a7f11339-0d58-4b8f-8834-abc8558e8f91"
           },
           {
-            "name": "Total Opex",
+            "name": "OPEX",
             "expression": "CALCULATE([Total], Fact_data[Revenue / Expense Group]=\"Opex\")",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "7ec0f08a-c569-4fb2-8c45-a2ee1c10ae75"
           },
           {
             "name": "EBIT",
-            "expression": "[Gross Profit]-[Total Opex]",
+            "expression": "[Gross Profit]-[OPEX]",
             "formatString": "#,0",
             "lineageTag": "4d582b38-e0c9-413f-8693-fb256b45f623"
           },
@@ -453,6 +453,12 @@
             "expression": "DIVIDE([EBIT], [Total Revenue])",
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "bf233f5b-292f-411c-92af-125d5a1e9d4a"
+          },
+          {
+            "name": "Interest & Tax",
+            "expression": "CALCULATE([Total Expense], Fact_data[Revenue / Expense Group] = \"Interest and tax\")",
+            "formatString": "#,0",
+            "lineageTag": "6e1cecbe-d056-47ef-86e6-4a40aba24a7f"
           }
         ],
         "partitions": [
