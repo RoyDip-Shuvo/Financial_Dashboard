@@ -1,5 +1,5 @@
 {
-  "compatibilityLevel": 1567,
+  "compatibilityLevel": 1601,
   "model": {
     "annotations": [
       {
@@ -5729,7 +5729,7 @@
           {
             "name": "Total Expense",
             "expression": "CALCULATE([Total], Fact_data[Revenue or expense]=\"expense\")",
-            "formatString": "#,0",
+            "formatString": "0",
             "lineageTag": "74bdb7e2-d9b4-46ef-b160-808f9c053eba"
           },
           {
