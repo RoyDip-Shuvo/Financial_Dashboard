@@ -10,6 +10,17 @@ The Financial Report Dashboard is designed to provide a comprehensive financial 
 
 ![Overview](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Overview.png)
 
+## 📊 Data Highlights:
+- Total Revenue: $17.56M
+- Total Expense: $13.25M
+- Gross Profit Margin: 61.78%
+- Net Profit: $4.31M
+- Business Line Performance: Sportswear, Sports Equipment, and Nutrition & Food Supplements performance highlighted.
+
+![KPI Card](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Git_image/KPI%20Card.jpg)
+
+
+
 ![Profit_Breakdown](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Profitbreakdown.png)
 
 ![ExpenseBreakdown](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Expensebreakdown.png)
