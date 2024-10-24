@@ -54,4 +54,53 @@ The Financial Report Dashboard is designed to provide a comprehensive financial 
 
 ![ExpenseBreakdown](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Expensebreakdown.png)
 
+## 📊 Income & Expense Statements
+This section presents a Quarterly Income and Expense Statement for the year 2023. It provides a breakdown of revenue, expenses, and quarterly-over-quarter analysis (QoQ) across different business lines.
+
 ![Income_Expense_Statement](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Income_Expense%20Statement.png)
+
+## Key Features:
+### Quarterly Revenue & Expense Data:
+- Breakdown by business lines: Nutrition & Food Supplements, Sports Equipment, and Sportswear.
+
+### QoQ Performance:
+- Highlights the percentage growth or decline quarter-over-quarter for each business line and cost category.
+
+### Income Statement:
+- Displays revenue from various sources, such as consulting services, other income, and sales.
+
+### Expense Statement:
+- Details costs associated with COGS, Opex, and interest/tax.
+
+### Dax Code: 
+```bash
+-----------------------------------------------------------------------------------------------------
+
+QoQ△ = 
+ Var PQ_Rev = CALCULATE([Total Revenue], DATEADD('Date'[Date],-1,QUARTER))
+ VAR Current_Rev = [Total Revenue]
+ VAR Result = Current_Rev - PQ_Rev
+ RETURN
+ Result
+
+-----------------------------------------------------------------------------------------------------
+
+QoQ△% = DIVIDE([QoQ△],[Total Revenue])
+
+-----------------------------------------------------------------------------------------------------
+
+EXP QoQ△ = 
+VAR PQ = CALCULATE([Total Expense], DATEADD('Date'[Date], -1, QUARTER))
+VAR Curent = [Total Expense]
+VAR Result = Curent - pq
+RETURN
+Result
+
+-----------------------------------------------------------------------------------------------------
+
+EXP QoQ△% = DIVIDE([EXP QoQ△], [Total Expense])
+
+-----------------------------------------------------------------------------------------------------
+```
+
+
