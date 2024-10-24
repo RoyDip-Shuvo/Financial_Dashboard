@@ -5,6 +5,9 @@ This repository features a **Power BI Financial Analysis Dashboard** created for
 
 ![Navigation_page](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Navigation.png)
 
+## 🚀 Project Overview
+The Financial Report Dashboard is designed to provide a comprehensive financial overview of the company’s operations. It includes key metrics such as Revenue, Expenses, Gross Profit, and Net Profit, along with detailed visualizations of how different business lines perform. The dashboard has interactive elements that allow users to filter data by month, business lines, and various financial categories.
+
 ![Overview](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Overview.png)
 
 ![Profit_Breakdown](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Profitbreakdown.png)
