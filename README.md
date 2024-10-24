@@ -24,7 +24,7 @@ The Financial Report Dashboard is designed to provide a comprehensive financial 
 
 ![KPI Card](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Git_image/KPI%20Card.jpg)
 
-## Key Features:
+### Key Features:
 ### Revenue and Expense Breakdown:
 
 - Visualizes total revenue and expense on a monthly basis.
@@ -57,9 +57,7 @@ The Financial Report Dashboard is designed to provide a comprehensive financial 
 ## 📊 Income & Expense Statements
 This section presents a Quarterly Income and Expense Statement for the year 2023. It provides a breakdown of revenue, expenses, and quarterly-over-quarter analysis (QoQ) across different business lines.
 
-![Income_Expense_Statement](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Income_Expense%20Statement.png)
-
-## Key Features:
+### Key Features:
 ### Quarterly Revenue & Expense Data:
 - Breakdown by business lines: Nutrition & Food Supplements, Sports Equipment, and Sportswear.
 
@@ -71,6 +69,9 @@ This section presents a Quarterly Income and Expense Statement for the year 2023
 
 ### Expense Statement:
 - Details costs associated with COGS, Opex, and interest/tax.
+
+![Income_Expense_Statement](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Income_Expense%20Statement.png)
+
 
 ### Dax Code: 
 ```bash
