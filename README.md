@@ -4,7 +4,7 @@ This repository features a **Power BI Financial Analysis Dashboard** created for
 ## 🛠 Tools Used:
 - Power BI: Data modeling, dashboard creation, and report automation.
 - DAX: Custom measures and calculations for financial analysis.
-- Figma: UI/UX design for the dashboard layout and background design.
+- Figma: This design tool is used for the dashboard layout and background design.
  
 ### [Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiZGI1YWRmMDAtMGUwNi00MjAyLTgwMWYtOWUzMjFmZjQxNDUwIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9)
 
@@ -117,7 +117,7 @@ This section presents a Quarterly Income and Expense Statement for the year 2023
 ![Income_Expense_Statement](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Income_Expense%20Statement.png)
 
 
-### Dax Code: 
+Dax Code: 
 ```bash
 -----------------------------------------------------------------------------------------------------
 
