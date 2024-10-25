@@ -48,11 +48,55 @@ The Financial Report Dashboard is designed to provide a comprehensive financial 
 
 ![Key Feature](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Git_image/Key%20Feature.jpg)
 
+## 📈 Profit Breakdown Section
+This section provides a detailed breakdown of the Operating Profit, Net Profit, COGS, and EBIT (Earnings Before Interest and Taxes) for the fiscal year 2023. It highlights performance on both a monthly and quarterly basis to offer insights into profitability trends.
 
+## Key Visuals:
 
-![Profit_Breakdown](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Profitbreakdown.png)
+### Operating Profit Breakdown:
+- Visualized by month and quarter.
+- Includes Total Revenue and Gross Profit (GP) Margin for each period.
 
-![ExpenseBreakdown](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Expensebreakdown.png)
+### Net Profit Breakdown:
+- Tracks Net Profit and NP Margin % over time to provide a snapshot of business performance.
+
+### COGS Breakdown:
+- Details the Cost of Goods Sold (COGS) across business lines: Sports Equipment, Sportswear, and Nutrition & Food Supplements.
+
+### EBIT & EBIT Margin %:
+- Shows the Earnings Before Interest and Taxes (EBIT) for each business line with a breakdown of EBIT Margin % over the months and quarters.
+
+![Profit_Breakdown](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Git_image/Profit%20Breakdown.jpg)
+
+Dax Code: 
+```bash
+
+```
+## 📊 Expense Breakdown Section
+This section provides a breakdown of the company’s expenses, including COGS, OPEX (Operating Expenses), and Interest & Tax for the fiscal year 2023. It offers insights into where the company is spending across different categories and business lines.
+
+## Key Visuals:
+
+### Monthly Breakdown of COGS, OPEX, and Interest & Tax:
+- A stacked bar chart representing monthly expense distribution across these categories.
+
+### Expense Breakdown by Business Line:
+- Shows how each business line (Nutrition & Food Supplements, Sports Equipment, and Sportswear) contributes to total expenses.
+
+### OPEX Breakdown:
+- Divided into equipment, marketing, payroll, R&D, rent, and other subcategories, with a detailed look at each business line.
+
+### COGS Breakdown:
+- Focused on labor, materials, and other production-related costs for each business line.
+
+### Interest & Tax Breakdown:
+- Displays the allocation of interest and tax expenses by business line.
+  
+![ExpenseBreakdown](https://github.com/RoyDip-Shuvo/Financial_Dashboard/blob/main/Images/Git_image/Expense%20Breakdown.jpg)
+
+Dax code:
+```bash
+```
 
 ## 📊 Income & Expense Statements
 This section presents a Quarterly Income and Expense Statement for the year 2023. It provides a breakdown of revenue, expenses, and quarterly-over-quarter analysis (QoQ) across different business lines.
